@@ -7,7 +7,7 @@ async function main() {
   try {
     const result = await promiseThatFails();
   } catch (e) {
-    console.error(e);
+    console.error("Inside the catch: ", e);
   }
 }
 
@@ -21,5 +21,5 @@ async function main2() {
   console.log(result);
 }
 
-main();
-// main2();
+// main();
+main2();

@@ -1,6 +1,9 @@
 const fetch = require("node-fetch");
 
-function getTodo(id) {
+////////////////////////////
+// Usage via promises
+////////////////////////////
+function printTodo(id) {
   return fetch(`https://jsonplaceholder.typicode.com/todos/${id}`)
     .then((res) => {
       if (res.ok) {
@@ -9,12 +12,10 @@ function getTodo(id) {
 
       throw new Error(res.statusText);
     })
+    .then((todo) => {
+      console.log(todo);
+    })
     .catch((err) => console.error(err));
 }
 
-////////////////////////////
-// Usage via promises
-////////////////////////////
-getTodo(2)
-  .then((data) => console.log(data))
-  .catch((err) => console.error(err));
+printTodo(2);
